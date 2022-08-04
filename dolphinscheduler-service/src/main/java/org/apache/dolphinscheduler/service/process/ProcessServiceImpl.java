@@ -2812,6 +2812,7 @@ public class ProcessServiceImpl implements ProcessService {
                 taskNode.setTaskGroupPriority(taskDefinitionLog.getTaskGroupPriority());
                 taskNode.setCpuQuota(taskDefinitionLog.getCpuQuota());
                 taskNode.setMemoryMax(taskDefinitionLog.getMemoryMax());
+                taskNode.setTaskExecuteType(taskDefinitionLog.getTaskExecuteType());
                 taskNodeList.add(taskNode);
             }
         }

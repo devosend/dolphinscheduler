@@ -26,9 +26,9 @@
           <template slot="content">
             <x-radio-group v-model="type" size="small">
               <x-radio :label="'MYSQL'">MYSQL</x-radio>
-              <x-radio :label="'POSTGRESQL'">POSTGRESQL</x-radio>
-              <x-radio :label="'HIVE'">HIVE/IMPALA</x-radio>
-              <x-radio :label="'SPARK'">SPARK</x-radio>
+              <x-radio :label="'POSTGRESQL'">星环TDH</x-radio>
+              <x-radio :label="'HIVE'">HOceanBase</x-radio>
+              <x-radio :label="'SPARK'">Greenplum</x-radio>
               <x-radio :label="'CLICKHOUSE'">CLICKHOUSE</x-radio>
               <x-radio :label="'ORACLE'">ORACLE</x-radio>
               <x-radio :label="'SQLSERVER'">SQLSERVER</x-radio>

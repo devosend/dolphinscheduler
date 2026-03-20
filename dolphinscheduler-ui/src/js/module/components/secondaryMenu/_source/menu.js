@@ -126,6 +126,24 @@ const menu = {
       icon: 'ans-icon-document',
       children: [],
       disabled: true
+    },
+    {
+      name: `${i18n.$t('Calendar manage')}`,
+      id: 5,
+      path: 'calendar-manage',
+      isOpen: true,
+      disabled: true,
+      icon: 'ans-icon-calendar',
+      children: []
+    },
+    {
+      name: `${i18n.$t('Card manage')}`,
+      id: 6,
+      path: 'card-manage',
+      isOpen: true,
+      disabled: true,
+      icon: 'ans-icon-card',
+      children: []
     }
   ],
   resource: [

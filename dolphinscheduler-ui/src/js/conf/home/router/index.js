@@ -393,6 +393,22 @@ const router = new Router({
           meta: {
             title: `${i18n.$t('Token manage')}`
           }
+        },
+        {
+          path: '/security/calendar',
+          name: 'calendar-manage',
+          component: resolve => require(['../pages/security/pages/calendar/index'], resolve),
+          meta: {
+            title: `${i18n.$t('Calendar manage')}`
+          }
+        },
+        {
+          path: '/security/card',
+          name: 'card-manage',
+          component: resolve => require(['../pages/security/pages/card/index'], resolve),
+          meta: {
+            title: `${i18n.$t('Card manage')}`
+          }
         }
       ]
     },

@@ -142,7 +142,7 @@ const menu = {
       path: 'card-manage',
       isOpen: true,
       disabled: true,
-      icon: 'ans-icon-card',
+      icon: 'ans-icon-coin',
       children: []
     }
   ],

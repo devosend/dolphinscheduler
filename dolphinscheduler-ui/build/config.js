@@ -215,7 +215,9 @@ const baseConfig = {
       '@': resolve('src/js'),
       '~': resolve('src/lib'),
       'jquery':'jquery/dist/jquery.min.js',
-      'jquery-ui': 'jquery-ui'
+      'jquery-ui': 'jquery-ui',
+      // Stub out ml-matrix: uses ES2021+ private fields unsupported by Babel 6
+      'ml-matrix': resolve('src/lib/stubs/ml-matrix.js')
     },
     extensions: ['*', '.js', 'json', '.vue', '.scss']
   },

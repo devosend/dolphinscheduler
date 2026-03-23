@@ -31,6 +31,10 @@ const config = merge.smart(baseConfig, {
   output: {
     filename: 'js/[name].[chunkhash:7].js'
   },
+  // Suppress mini-css-extract-plugin conflicting order warnings (cosmetic only)
+  stats: {
+    warningsFilter: /Conflicting order/
+  },
   plugins: [
     new ProgressPlugin(),
     new MiniCssExtractPlugin({ filename: 'css/[name].[contenthash:7].css' }),

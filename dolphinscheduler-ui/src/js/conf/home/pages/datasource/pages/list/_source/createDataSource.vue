@@ -237,15 +237,15 @@
           },
           {
             value: 'POSTGRESQL',
-            label: 'POSTGRESQL'
+            label: '星环TDH'
           },
           {
             value: 'HIVE',
-            label: 'HIVE/IMPALA'
+            label: 'HOceanBase'
           },
           {
             value: 'SPARK',
-            label: 'SPARK'
+            label: 'Greenplum'
           },
           {
             value: 'CLICKHOUSE',

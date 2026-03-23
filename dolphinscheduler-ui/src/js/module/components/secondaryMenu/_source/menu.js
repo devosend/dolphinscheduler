@@ -153,6 +153,24 @@ const menu = {
       icon: 'el-icon-document',
       children: [],
       enabled: true
+    },
+    {
+      name: `${i18n.$t('Calendar manage')}`,
+      id: 5,
+      path: 'calendar-manage',
+      isOpen: true,
+      enabled: true,
+      icon: 'el-icon-date',
+      children: []
+    },
+    {
+      name: `${i18n.$t('Card manage')}`,
+      id: 6,
+      path: 'card-manage',
+      isOpen: true,
+      enabled: true,
+      icon: 'el-icon-bank-card',
+      children: []
     }
   ],
   resource: [

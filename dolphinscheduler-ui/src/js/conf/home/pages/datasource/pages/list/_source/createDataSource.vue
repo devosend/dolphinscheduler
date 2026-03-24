@@ -187,6 +187,7 @@
   import store from '@/conf/home/store'
   import { isJson } from '@/module/util/util'
   import mListBoxF from '@/module/components/listBoxF/listBoxF'
+  import { DATASOURCE_TYPE_LIST } from './datasourceTypes'
 
   export default {
     name: 'create-datasource',
@@ -230,44 +231,7 @@
         showConnectType: false,
         isShowPrincipal: true,
         prePortMapper: {},
-        datasourceTypeList: [
-          {
-            value: 'MYSQL',
-            label: 'MYSQL'
-          },
-          {
-            value: 'POSTGRESQL',
-            label: '星环TDH'
-          },
-          {
-            value: 'HIVE',
-            label: 'HOceanBase'
-          },
-          {
-            value: 'SPARK',
-            label: 'Greenplum'
-          },
-          {
-            value: 'CLICKHOUSE',
-            label: 'CLICKHOUSE'
-          },
-          {
-            value: 'ORACLE',
-            label: 'ORACLE'
-          },
-          {
-            value: 'SQLSERVER',
-            label: 'SQLSERVER'
-          },
-          {
-            value: 'DB2',
-            label: 'DB2'
-          },
-          {
-            value: 'PRESTO',
-            label: 'PRESTO'
-          }
-        ]
+        datasourceTypeList: DATASOURCE_TYPE_LIST
       }
     },
     props: {

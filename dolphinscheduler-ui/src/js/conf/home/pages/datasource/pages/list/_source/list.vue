@@ -21,7 +21,9 @@
         <el-table-column type="index" :label="$t('#')" width="50"></el-table-column>
         <el-table-column prop="name" :label="$t('Datasource Name')"></el-table-column>
         <el-table-column prop="userName" :label="$t('Datasource userName')"></el-table-column>
-        <el-table-column prop="type" :label="$t('Datasource Type')"></el-table-column>
+        <el-table-column :label="$t('Datasource Type')">
+          <template slot-scope="scope">{{_typeLabel(scope.row.type)}}</template>
+        </el-table-column>
         <el-table-column :label="$t('Datasource Parameter')">
           <template slot-scope="scope">
             <div>
@@ -75,6 +77,7 @@
   import { mapActions } from 'vuex'
   import { findComponentDownward } from '@/module/util/'
   import mTooltipsJSON from '@/module/components/tooltipsJSON/tooltipsJSON'
+  import { DATASOURCE_TYPE_MAP } from './datasourceTypes'
 
   export default {
     name: 'datasource-list',
@@ -106,6 +109,12 @@
         }).catch(e => {
           this.$message.error(e.msg || '')
         })
+      },
+      /**
+       * Translate raw type value to display label
+       */
+      _typeLabel (type) {
+        return DATASOURCE_TYPE_MAP[type] || type
       },
       /**
        * edit

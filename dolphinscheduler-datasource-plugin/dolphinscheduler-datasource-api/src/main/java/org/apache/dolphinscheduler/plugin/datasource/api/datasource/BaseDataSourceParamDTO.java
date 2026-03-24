@@ -79,6 +79,12 @@ public abstract class BaseDataSourceParamDTO implements Serializable {
 
     protected Map<String, String> other;
 
+    /**
+     * When true, skip the connection availability test on create/update.
+     * Defaults to false to preserve original behavior.
+     */
+    protected boolean skipConnectionTest = true;
+
     public Integer getId() {
         return id;
     }
@@ -149,6 +155,14 @@ public abstract class BaseDataSourceParamDTO implements Serializable {
 
     public void setOther(Map<String, String> other) {
         this.other = other;
+    }
+
+    public boolean isSkipConnectionTest() {
+        return skipConnectionTest;
+    }
+
+    public void setSkipConnectionTest(boolean skipConnectionTest) {
+        this.skipConnectionTest = skipConnectionTest;
     }
 
     /**

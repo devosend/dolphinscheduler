@@ -64,7 +64,8 @@
                   :placeholder="$t('Date input placeholder')"
                   size="mini"
                   autocomplete="off"
-                  style="width: 180px;">
+                  style="width: 300px;"
+                  @keyup.enter.native="_addDate">
                 </el-input>
                 <el-button type="primary" size="mini" @click="_addDate" style="margin-left: 8px;">
                   {{$t('Add date')}}
@@ -76,7 +77,7 @@
                   :key="idx"
                   class="date-tag">
                   {{d}}
-                  <i class="ans-icon-close date-tag-remove" @click="_removeDate(idx)"></i>
+                  <i class="el-icon-close date-tag-remove" @click="_removeDate(idx)"></i>
                 </span>
               </div>
               <div v-else class="date-empty">{{$t('No dates added')}}</div>
@@ -145,21 +146,33 @@
         return true
       },
       _addDate () {
-        const d = this.dateInput.trim()
-        if (!d) {
+        const raw = this.dateInput.trim()
+        if (!raw) {
           this.$message.warning(i18n.$t('Please enter date'))
           return
         }
-        if (!DATE_PATTERN.test(d)) {
-          this.$message.warning(i18n.$t('Date format invalid'))
-          return
-        }
-        if (this.dateList.includes(d)) {
+        // Split by comma or Chinese comma, filter empty tokens
+        const tokens = raw.split(/[,，]/).map(s => s.trim()).filter(s => s.length > 0)
+        const invalid = []
+        const duplicate = []
+        const added = []
+        tokens.forEach(d => {
+          if (!DATE_PATTERN.test(d)) {
+            invalid.push(d)
+          } else if (this.dateList.includes(d)) {
+            duplicate.push(d)
+          } else {
+            this.dateList.push(d)
+            added.push(d)
+          }
+        })
+        if (invalid.length > 0) {
+          this.$message.warning(`${i18n.$t('Date format invalid')}: ${invalid.join(', ')}`)
+        } else if (added.length === 0 && duplicate.length > 0) {
           this.$message.warning(i18n.$t('Date already added'))
-          return
+        } else if (added.length > 0) {
+          this.dateInput = ''
         }
-        this.dateList.push(d)
-        this.dateInput = ''
       },
       _removeDate (idx) {
         this.dateList.splice(idx, 1)

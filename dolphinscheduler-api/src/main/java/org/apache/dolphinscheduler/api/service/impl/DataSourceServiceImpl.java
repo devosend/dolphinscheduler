@@ -86,12 +86,14 @@ public class DataSourceServiceImpl extends BaseServiceImpl implements DataSource
             putMsg(result, Status.DATASOURCE_EXIST);
             return result;
         }
-        // check connect
+        // build connection params; optionally skip connectivity check
         ConnectionParam connectionParam = DatasourceUtil.buildConnectionParams(datasourceParam);
-        Result<Object> isConnection = checkConnection(datasourceParam.getType(), connectionParam);
-        if (Status.SUCCESS.getCode() != isConnection.getCode()) {
-            putMsg(result, Status.DATASOURCE_CONNECT_FAILED);
-            return result;
+        if (!datasourceParam.isSkipConnectionTest()) {
+            Result<Object> isConnection = checkConnection(datasourceParam.getType(), connectionParam);
+            if (Status.SUCCESS.getCode() != isConnection.getCode()) {
+                putMsg(result, Status.DATASOURCE_CONNECT_FAILED);
+                return result;
+            }
         }
 
         // build datasource
@@ -154,9 +156,11 @@ public class DataSourceServiceImpl extends BaseServiceImpl implements DataSource
             connectionParam.setPassword(oldParams.path(Constants.PASSWORD).asText());
         }
 
-        Result<Object> isConnection = checkConnection(dataSource.getType(), connectionParam);
-        if (isConnection.isFailed()) {
-            return isConnection;
+        if (!dataSourceParam.isSkipConnectionTest()) {
+            Result<Object> isConnection = checkConnection(dataSource.getType(), connectionParam);
+            if (isConnection.isFailed()) {
+                return isConnection;
+            }
         }
 
         Date now = new Date();

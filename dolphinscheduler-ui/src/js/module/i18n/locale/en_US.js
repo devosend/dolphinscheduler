@@ -780,7 +780,7 @@ export default {
   'Execute Day': 'Execute Day',
   'Non-Execute Day': 'Non-Execute Day',
   'Date List': 'Date List',
-  'Date input placeholder': 'Enter date (yyyy-MM-dd)',
+  'Date input placeholder': 'Enter date (yyyy-MM-dd), multiple separated by comma',
   'Add date': 'Add date',
   'No dates added': 'No dates added',
   'Please enter date': 'Please enter date',

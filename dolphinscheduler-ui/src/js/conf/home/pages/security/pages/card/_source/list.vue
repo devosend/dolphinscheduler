@@ -69,7 +69,7 @@
               data-toggle="tooltip"
               :title="$t('Edit card value')"
               @click="_editValue(item)"
-              icon="ans-icon-edit-2"
+              icon="ans-icon-calendar"
               style="margin-left: 4px;">
             </x-button>
             <x-poptip

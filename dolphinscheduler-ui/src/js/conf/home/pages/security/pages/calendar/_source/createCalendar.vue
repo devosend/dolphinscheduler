@@ -145,21 +145,39 @@
         return true
       },
       _addDate () {
-        const d = this.dateInput.trim()
-        if (!d) {
+        const raw = this.dateInput.trim()
+        if (!raw) {
           this.$message.warning(i18n.$t('Please enter date'))
           return
         }
-        if (!DATE_PATTERN.test(d)) {
-          this.$message.warning(i18n.$t('Date format invalid'))
-          return
+        // Support comma-separated multiple dates
+        const inputs = raw.split(',').map(s => s.trim()).filter(s => s.length > 0)
+        const invalidDates = []
+        const toAdd = []
+
+        inputs.forEach(d => {
+          if (!DATE_PATTERN.test(d)) {
+            invalidDates.push(d)
+          } else if (!this.dateList.includes(d)) {
+            toAdd.push(d)
+          }
+          // silently skip duplicates already in the list
+        })
+
+        if (invalidDates.length > 0) {
+          this.$message.warning(i18n.$t('Date format invalid') + ': ' + invalidDates.join(', '))
         }
-        if (this.dateList.includes(d)) {
+
+        if (toAdd.length > 0) {
+          this.dateList.push(...toAdd)
+          // Only clear input when all entries are valid
+          if (invalidDates.length === 0) {
+            this.dateInput = ''
+          }
+        } else if (invalidDates.length === 0) {
+          // All inputs were duplicates
           this.$message.warning(i18n.$t('Date already added'))
-          return
         }
-        this.dateList.push(d)
-        this.dateInput = ''
       },
       _removeDate (idx) {
         this.dateList.splice(idx, 1)

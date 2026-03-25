@@ -646,7 +646,7 @@ export default {
   'Execute Day': '执行日',
   'Non-Execute Day': '非执行日',
   'Date List': '日期列表',
-  'Date input placeholder': '输入日期（yyyy-MM-dd）',
+  'Date input placeholder': '输入日期（yyyy-MM-dd），多个用逗号分隔',
   'Add date': '添加日期',
   'No dates added': '暂未添加日期',
   'Please enter date': '请输入日期',

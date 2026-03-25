@@ -54,7 +54,7 @@
             </span>
           </td>
           <td>
-            <span>{{item.type}}</span>
+            <span>{{_typeLabel(item.type)}}</span>
           </td>
           <td>
             <m-tooltips-JSON :JSON="JSON.parse(item.connectionParams)" :id="item.id">
@@ -153,6 +153,17 @@
         }).catch(e => {
           this.$message.error(e.msg || '')
         })
+      },
+      /**
+       * Map backend datasource type enum to display label
+       */
+      _typeLabel (type) {
+        const TYPE_LABEL_MAP = {
+          POSTGRESQL: '星环TDH',
+          HIVE: 'HOceanBase',
+          SPARK: 'Greenplum'
+        }
+        return TYPE_LABEL_MAP[type] || type
       },
       /**
        * edit

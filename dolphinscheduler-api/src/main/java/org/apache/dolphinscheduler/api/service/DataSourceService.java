@@ -108,12 +108,12 @@ public class DataSourceService extends BaseService{
             putMsg(result, Status.DATASOURCE_EXIST);
             return result;
         }
-        Boolean isConnection = checkConnection(type, parameter);
-        if (!isConnection) {
-            logger.info("connect failed, type:{}, parameter:{}", type, parameter);
-            putMsg(result, Status.DATASOURCE_CONNECT_FAILED);
-            return result;
-        }
+        // Boolean isConnection = checkConnection(type, parameter);
+        // if (!isConnection) {
+        //     logger.info("connect failed, type:{}, parameter:{}", type, parameter);
+        //     putMsg(result, Status.DATASOURCE_CONNECT_FAILED);
+        //     return result;
+        // }
 
         BaseDataSource datasource = DataSourceFactory.getDatasource(type, parameter);
         if (datasource == null) {
@@ -173,12 +173,12 @@ public class DataSourceService extends BaseService{
             return result;
         }
 
-        Boolean isConnection = checkConnection(type, parameter);
-        if (!isConnection) {
-            logger.info("connect failed, type:{}, parameter:{}", type, parameter);
-            putMsg(result, Status.DATASOURCE_CONNECT_FAILED);
-            return result;
-        }
+        // Boolean isConnection = checkConnection(type, parameter);
+        // if (!isConnection) {
+        //     logger.info("connect failed, type:{}, parameter:{}", type, parameter);
+        //     putMsg(result, Status.DATASOURCE_CONNECT_FAILED);
+        //     return result;
+        // }
         Date now = new Date();
 
         dataSource.setName(name.trim());

@@ -96,9 +96,9 @@ done
 
 ```bash
 # Execute on all nodes
-tar -zxvf apache-dolphinscheduler-2.0.9-bin.tar.gz -C /opt/
-chown -R dolphinscheduler:dolphinscheduler /opt/apache-dolphinscheduler-2.0.9-bin
-export DS_HOME=/opt/apache-dolphinscheduler-2.0.9-bin
+tar -zxvf apache-dolphinscheduler-2.0.9-bin.tar.gz -C /data/
+chown -R dolphinscheduler:dolphinscheduler /data/apache-dolphinscheduler-2.0.9-bin
+export DS_HOME=/data/apache-dolphinscheduler-2.0.9-bin
 ```
 
 ### 3.4 放置 MySQL JDBC Driver（所有节点）
@@ -106,14 +106,6 @@ export DS_HOME=/opt/apache-dolphinscheduler-2.0.9-bin
 ```bash
 # Execute on all nodes
 cp mysql-connector-java-8.0.28.jar $DS_HOME/lib/
-```
-
-### 3.5 创建数据目录（所有节点）
-
-```bash
-# Execute on all nodes
-mkdir -p /data/dolphinscheduler
-chown -R dolphinscheduler:dolphinscheduler /data/dolphinscheduler
 ```
 
 ---

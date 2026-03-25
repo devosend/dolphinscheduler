@@ -140,7 +140,8 @@ export PATH=$HADOOP_HOME/bin:$SPARK_HOME1/bin:$SPARK_HOME2/bin:$PYTHON_HOME:$JAV
 
 ```
 
-> `dolphinscheduler-daemon.sh` 启动进程时会使用 `JAVA_HOME`。
+> `dolphinscheduler-daemon.sh` 启动进程时会使用“当前 shell 环境变量”里的 `JAVA_HOME`。
+> 它不会自动读取/加载 `conf/env/dolphinscheduler_env.sh`，所以你需要在启动前手工 `source conf/env/dolphinscheduler_env.sh`，或将 `JAVA_HOME` 配置到系统环境（例如 `/etc/profile`）。
 
 ### 5.2 `conf/datasource.properties`（MySQL 连接）
 
@@ -189,6 +190,7 @@ done
 
 ```bash
 su - dolphinscheduler && cd /data/dolphinscheduler
+source conf/env/dolphinscheduler_env.sh
 sh bin/dolphinscheduler-daemon.sh start master-server
 ```
 
@@ -196,6 +198,7 @@ sh bin/dolphinscheduler-daemon.sh start master-server
 
 ```bash
 su - dolphinscheduler && cd /data/dolphinscheduler
+source conf/env/dolphinscheduler_env.sh
 sh bin/dolphinscheduler-daemon.sh start worker-server
 sh bin/dolphinscheduler-daemon.sh start logger-server
 ```
@@ -204,6 +207,7 @@ sh bin/dolphinscheduler-daemon.sh start logger-server
 
 ```bash
 su - dolphinscheduler && cd /data/dolphinscheduler
+source conf/env/dolphinscheduler_env.sh
 sh bin/dolphinscheduler-daemon.sh start api-server
 sh bin/dolphinscheduler-daemon.sh start alert-server
 ```

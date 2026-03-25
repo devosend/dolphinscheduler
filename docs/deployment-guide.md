@@ -87,10 +87,10 @@ chown -R dolphinscheduler:dolphinscheduler /data/dolphinscheduler
 
 ### 3.4 放置 MySQL JDBC Driver（所有节点）
 
-如果你的二进制包不包含 MySQL 驱动，把驱动拷贝到 `$DS_HOME/lib/`：
+如果你的二进制包不包含 MySQL 驱动，可以用 `wget` 直接下载 JDBC 驱动到 `$DS_HOME/lib/`：
 
 ```bash
-cp mysql-connector-java-*.jar /data/dolphinscheduler/lib/
+wget -O /data/dolphinscheduler/lib/mysql-connector-java-8.0.28.jar https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar
 ```
 
 ---
@@ -125,9 +125,19 @@ mysql -u ds_user -p dolphinscheduler < /data/dolphinscheduler/sql/dolphinschedul
 
 ```bash
 # Replace with the actual JDK path on your servers
-export JAVA_HOME=/usr/local/jdk1.8.0_311
+export HADOOP_HOME=/opt/soft/hadoop
+export HADOOP_CONF_DIR=/opt/soft/hadoop/etc/hadoop
+export SPARK_HOME1=/opt/soft/spark1
+export SPARK_HOME2=/opt/soft/spark2
+export PYTHON_HOME=/opt/soft/python
+# java path
+export JAVA_HOME=/opt/soft/java
+export HIVE_HOME=/opt/soft/hive
+export FLINK_HOME=/opt/soft/flink
+export DATAX_HOME=/opt/soft/datax
 
-export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$HADOOP_HOME/bin:$SPARK_HOME1/bin:$SPARK_HOME2/bin:$PYTHON_HOME:$JAVA_HOME/bin:$HIVE_HOME/bin:$FLINK_HOME/bin:$DATAX_HOME/bin:$PATH
+
 ```
 
 > `dolphinscheduler-daemon.sh` 启动进程时会使用 `JAVA_HOME`。

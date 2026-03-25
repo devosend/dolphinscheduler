@@ -105,7 +105,8 @@ export DS_HOME=/data/apache-dolphinscheduler-2.0.9-bin
 
 ```bash
 # Execute on all nodes
-cp mysql-connector-java-8.0.28.jar $DS_HOME/lib/
+wget -O $DS_HOME/lib/mysql-connector-java-8.0.28.jar https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar
+
 ```
 
 ---

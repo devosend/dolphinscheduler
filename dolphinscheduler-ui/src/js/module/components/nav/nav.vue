@@ -400,8 +400,9 @@
 <style lang="scss" rel="stylesheet/scss">
   .nav-model {
     height: 60px;
-    background: #2D303A;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #e8e8e8;
     position: relative;
     .m-title-box {
       text-align: center;
@@ -414,7 +415,7 @@
       }
     }
     .el-dropdown {
-      color: #fff;
+      color: #333333;
       font-size: 14px;
       vertical-align: middle;
       line-height: 60px;
@@ -450,14 +451,14 @@
             position: relative;
             text-decoration: none;
             font-size: 15px;
-            color: #333;
+            color: #333333;
             display: inline-block;
             float: left;
             text-align: center;
             span {
               display: block;
               width: 106px;
-              color: #fff;
+              color: #333333;
               .ansiconfont {
                 vertical-align: -2px;
                 font-size: 22px;
@@ -507,7 +508,7 @@
       >.docs {
         padding-right: 20px;
         a {
-          color: #fff;
+          color: #333333;
           font-size: 14px;
           vertical-align: middle;
           &:hover {
@@ -530,7 +531,7 @@
           }
         }
         span {
-          color: #333;
+          color: #333333;
           vertical-align: middle;
           font-size: 14px;
         }
@@ -548,10 +549,10 @@
         em {
           font-size: 18px;
           vertical-align: middle;
-          color: #fff;
+          color: #333333;
         }
         span {
-          color: #fff;
+          color: #333333;
           vertical-align: middle;
           font-size: 14px;
         }

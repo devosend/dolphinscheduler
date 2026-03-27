@@ -120,7 +120,8 @@
     left: 0;
     top: 0;
     width: 200px;
-    background: #41444C;
+    background: #ffffff;
+    border-right: 1px solid #e8e8e8;
     height: calc(100%);
     padding-top: 80px;
     .toogle-box {
@@ -159,13 +160,13 @@
             font-size: 15px;
             width: 20px;
             text-align: center;
-            color: #fff;
+            color: #333333;
           }
           >span {
             vertical-align: middle;
             padding-left: 2px;
             font-size: 14px;
-            color: #fff;
+            color: #333333;
           }
           >.angle {
             position: absolute;
@@ -181,13 +182,13 @@
           line-height: 36px;
           cursor: pointer;
           padding-left: 39px;
-          color: #fff;
+          color: #555555;
           a {
             font-size: 14px;
           }
           &.active {
             border-right: 2px solid #2d8cf0;
-            background: #2C2F39;
+            background: #e8f4ff;
             span {
               font-weight: bold;
               color: #2d8cf0;
@@ -196,10 +197,10 @@
         }
       }
       >.router-link-exact-active,.router-link-active {
-        background: #f0f6fb;
+        background: #f5f7fa;
         .name {
           border-right: 2px solid #2d8cf0;
-          background: #2B2E38;
+          background: #f0f6fb;
           a {
             span {
               color: #2d8cf0;

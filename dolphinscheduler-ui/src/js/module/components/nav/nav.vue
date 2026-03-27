@@ -466,8 +466,8 @@
 <style lang="scss" rel="stylesheet/scss">
   .nav-model {
     height: 60px;
-    background: #2D303A;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     position: relative;
     .m-title-box {
       text-align: center;
@@ -516,7 +516,7 @@
             span {
               display: block;
               width: 106px;
-              color: #fff;
+              color: #333;
               .ansiconfont {
                 vertical-align: -2px;
                 font-size: 22px;
@@ -561,7 +561,7 @@
       >.docs {
         padding-right: 20px;
         a {
-          color: #fff;
+          color: #333;
           font-size: 14px;
           vertical-align: middle;
           &:hover {
@@ -602,10 +602,10 @@
         em {
           font-size: 18px;
           vertical-align: middle;
-          color: #fff;
+          color: #333;
         }
         span {
-          color: #fff;
+          color: #333;
           vertical-align: middle;
           font-size: 14px;
         }
